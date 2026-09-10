@@ -1,6 +1,6 @@
-/* =========================================
+/* =========================================================
    GENERAL / VITE DEFAULT STYLES
-========================================= */
+========================================================= */
 
 .counter {
   font-size: 16px;
@@ -23,9 +23,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
 .hero {
   position: relative;
@@ -75,9 +75,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    CENTER
-========================================= */
+========================================================= */
 
 #center {
   display: flex;
@@ -89,9 +89,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    NEXT STEPS
-========================================= */
+========================================================= */
 
 #next-steps {
   display: flex;
@@ -115,9 +115,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    NEXT STEPS LIST
-========================================= */
+========================================================= */
 
 #next-steps ul {
   list-style: none;
@@ -154,9 +154,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    SPACER
-========================================= */
+========================================================= */
 
 #spacer {
   height: 88px;
@@ -164,9 +164,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    TICKS
-========================================= */
+========================================================= */
 
 .ticks {
   position: relative;
@@ -192,9 +192,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    AUTHENTICATION PAGES
-========================================= */
+========================================================= */
 
 .auth-page {
   min-height: calc(100vh - 70px);
@@ -225,9 +225,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    FORM
-========================================= */
+========================================================= */
 
 .form-group {
   margin-bottom: 20px;
@@ -254,9 +254,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    AUTH BUTTON
-========================================= */
+========================================================= */
 
 .auth-button {
   width: 100%;
@@ -275,9 +275,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    FORM MESSAGES
-========================================= */
+========================================================= */
 
 .form-error {
   color: #d32f2f;
@@ -292,9 +292,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    AUTH FOOTER
-========================================= */
+========================================================= */
 
 .auth-footer {
   text-align: center;
@@ -309,9 +309,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    MENU DETAILS - ADD TO CART
-========================================= */
+========================================================= */
 
 .add-to-cart-button {
   margin-top: 20px;
@@ -331,9 +331,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    CART SUCCESS MESSAGE
-========================================= */
+========================================================= */
 
 .cart-success-message {
   margin-top: 12px;
@@ -342,9 +342,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    VIEW CART BUTTON
-========================================= */
+========================================================= */
 
 .view-cart-button {
   margin-top: 12px;
@@ -365,12 +365,11 @@
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* =========================================================
+   RESPONSIVE GENERAL
+========================================================= */
 
 @media (max-width: 1024px) {
-
   #center {
     padding: 32px 20px 24px;
     gap: 18px;
@@ -412,12 +411,11 @@
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
+/* =========================================================
+   MOBILE GENERAL
+========================================================= */
 
 @media (max-width: 600px) {
-
   .auth-page {
     padding: 30px 15px;
   }
@@ -434,31 +432,26 @@
   .view-cart-button {
     width: 100%;
   }
-}  
+}
 
-/* =========================
+
+/* =========================================================
    ADD TO CART
-========================= */
+========================================================= */
 
 .add-to-cart-btn {
   display: inline-block !important;
   width: auto !important;
-
   margin-top: 20px !important;
   padding: 12px 25px !important;
-
   background-color: #222 !important;
   color: #ffffff !important;
-
   border: none !important;
   border-radius: 6px !important;
-
   font-size: 16px !important;
   font-weight: bold !important;
-
   cursor: pointer !important;
   font-family: inherit !important;
-
   transition: all 0.3s ease !important;
 }
 
@@ -468,43 +461,36 @@
 }
 
 
-/* =========================
+/* =========================================================
    CART SUCCESS MESSAGE
-========================= */
+========================================================= */
 
 .cart-success-message {
   margin-top: 15px;
   margin-bottom: 10px;
-
   color: #2e7d32;
   font-size: 15px;
   font-weight: 600;
 }
 
 
-/* =========================
+/* =========================================================
    VIEW CART
-========================= */
+========================================================= */
 
 .view-cart-btn {
   display: inline-block !important;
   width: auto !important;
-
   margin-top: 5px !important;
   padding: 11px 24px !important;
-
   background-color: #ffffff !important;
   color: #222 !important;
-
   border: 2px solid #222 !important;
   border-radius: 6px !important;
-
   font-size: 15px !important;
   font-weight: bold !important;
-
   text-decoration: none !important;
   cursor: pointer !important;
-
   transition: all 0.3s ease !important;
 }
 
@@ -514,9 +500,9 @@
 }
 
 
-/* =========================
+/* =========================================================
    CART BUTTON CONTAINER
-========================= */
+========================================================= */
 
 .cart-actions {
   display: flex;
@@ -525,9 +511,10 @@
   margin-top: 15px;
 }
 
-/* =========================================
+
+/* =========================================================
    ADMIN USERS
-========================================= */
+========================================================= */
 
 .users-count {
   margin: 20px 0;
@@ -545,250 +532,701 @@
   color: #1f9d55;
   font-weight: 600;
 }
-/* =========================================
+
+
+/* =========================================================
    FOODORA NAVBAR
-========================================= */
-
-.navbar {
-  height: 70px;
-  padding: 0 40px;
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  border-bottom: 1px solid #eeeeee;
-  position: relative;
-  z-index: 1000;
-}
-
-/* Logo container */
-.logo {
-  display: flex;
-  align-items: center;
-  height: 70px;
-}
-
-/* Logo link */
-.logo a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  height: 70px;
-}
-
-/* Foodora logo */
-.foodora-logo {
-  display: block !important;
-  width: 150px !important;
-  height: 55px !important;
-  max-width: 150px !important;
-  max-height: 55px !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  object-fit: contain !important;
-}
-
-/* Navbar links */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.nav-links a {
-  color: #222222;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #666666;
-}
-
-/* Logout button */
-.logout-button {
-  padding: 9px 16px;
-  border: none;
-  border-radius: 6px;
-  background: #222222;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.logout-button:hover {
-  background: #000000;
-}
-
-/* =========================================
-   FOODORA NAVBAR - MOBILE
-========================================= */
-
-@media (max-width: 768px) {
-
-  .navbar {
-    height: auto;
-    min-height: 70px;
-    padding: 10px 20px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .logo,
-  .logo a {
-    height: 60px;
-  }
-
-  .foodora-logo {
-    width: 120px !important;
-    height: 50px !important;
-    max-width: 120px !important;
-    max-height: 50px !important;
-  }
-
-  .nav-links {
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-  }
-
-  .logout-button {
-    padding: 8px 12px;
-  }
-} 
-
-/* =========================================
-   FOODORA NAVBAR
-========================================= */
+========================================================= */
 
 .navbar {
   width: 100%;
-  height: 70px;
-  padding: 0 40px;
-  background: #ffffff;
+  min-height: 70px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  padding: 10px 30px;
   box-sizing: border-box;
-  border-bottom: 1px solid #eeeeee;
+
+  background: #fff9f0;
+  border-bottom: 1px solid #e5d8c8;
 
   position: relative;
   z-index: 1000;
 }
 
-.logo {
-  width: 150px;
-  height: 70px;
 
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
   display: flex;
   align-items: center;
+
+  flex: 0 0 auto;
   flex-shrink: 0;
 }
 
 .logo a {
-  width: 150px;
-  height: 70px;
-
   display: flex;
   align-items: center;
-
   text-decoration: none;
 }
 
 .foodora-logo {
-  width: 150px !important;
-  height: 55px !important;
+  display: block;
 
-  max-width: 150px !important;
-  max-height: 55px !important;
+  width: 130px;
+  height: 55px;
 
-  object-fit: contain !important;
-  display: block !important;
+  max-width: 130px;
+  max-height: 55px;
+
+  object-fit: contain;
 }
 
-/* NAVIGATION */
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: flex-end;
+
+  gap: 6px;
+
+  flex: 1;
+  min-width: 0;
+
+  margin-left: 20px;
 }
 
-.nav-links a {
-  color: #222;
+.nav-links a,
+.logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 9px 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #5a3825;
+
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-.nav-links a:hover {
-  color: #666;
+.nav-links a:hover,
+.logout-button:hover {
+  background: #f5efe6;
+  color: #3e2619;
 }
 
-/* LOGOUT */
+
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 .logout-button {
-  padding: 9px 16px;
-  border: none;
-  border-radius: 6px;
+  flex-shrink: 0;
+}
 
-  background: #222;
-  color: #fff;
+.logout-button svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-button {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+  margin: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e5d8c8;
+  border-radius: 8px;
+
+  background: #fff9f0;
+  color: #5a3825;
+
+  cursor: pointer;
+
+  flex: 0 0 44px;
+  flex-shrink: 0;
+
+  position: relative;
+  z-index: 10001;
+}
+
+.mobile-menu-button:hover {
+  background: #f5efe6;
+}
+
+
+/* =========================================================
+   TABLET NAVBAR
+========================================================= */
+
+@media (max-width: 1100px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .foodora-logo {
+    width: 115px;
+    max-width: 115px;
+  }
+
+  .nav-links {
+    gap: 3px;
+    margin-left: 10px;
+  }
+
+  .nav-links a,
+  .logout-button {
+    padding: 8px 7px;
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET NAVBAR
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .navbar {
+    width: 100%;
+    min-height: 65px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 18px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* -------------------------------------------------------
+     LOGO
+  ------------------------------------------------------- */
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+  }
+
+  .foodora-logo {
+    width: 115px;
+    height: auto;
+
+    max-width: 115px;
+    max-height: 50px;
+
+    object-fit: contain;
+  }
+
+
+  /* -------------------------------------------------------
+     HAMBURGER
+  ------------------------------------------------------- */
+
+  .mobile-menu-button {
+    display: flex;
+
+    position: relative;
+
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    margin-left: auto;
+    margin-right: 0;
+
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE NAVIGATION DROPDOWN
+  ------------------------------------------------------- */
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 15px 18px;
+
+    box-sizing: border-box;
+
+    background: #fff9f0;
+
+    border-top: 1px solid #e5d8c8;
+    border-bottom: 1px solid #e5d8c8;
+
+    box-shadow:
+      0 8px 20px rgba(62, 38, 25, 0.08);
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 5px;
+
+    z-index: 10000;
+  }
+
+
+  /* -------------------------------------------------------
+     OPEN MENU
+  ------------------------------------------------------- */
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE LINKS
+  ------------------------------------------------------- */
+
+  .nav-links a,
+  .logout-button {
+    width: 100%;
+
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 10px 14px;
+
+    box-sizing: border-box;
+
+    font-size: 15px;
+  }
+
+  .logout-button {
+    margin-top: 5px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE NAVBAR
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    min-height: 62px;
+    padding: 8px 14px;
+  }
+
+  .foodora-logo {
+    width: 105px;
+    max-width: 105px;
+    max-height: 45px;
+  }
+
+  .mobile-menu-button {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+  }
+
+  .nav-links {
+    padding: 12px 14px;
+  }
+}
+
+
+/* =========================================================
+   MENU SEARCH BAR
+========================================================= */
+
+.menu-search {
+  width: min(600px, 90%);
+
+  margin: 30px auto 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  background: #fff9f0;
+
+  border: 1px solid #e5d8c8;
+
+  border-radius: 30px;
+
+  box-sizing: border-box;
+}
+
+.menu-search svg {
+  color: #8b6b52;
+  flex-shrink: 0;
+}
+
+.menu-search input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #4a3325;
+
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.menu-search input::placeholder {
+  color: #9a8775;
+}
+
+
+/* =========================================================
+   MENU CATEGORY FILTER
+========================================================= */
+
+.category-filter {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 20px auto 35px;
+
+  padding: 0 20px;
+
+  flex-wrap: wrap;
+
+  box-sizing: border-box;
+}
+
+.category-button {
+  padding: 10px 20px;
+
+  border: 1px solid #e5d8c8;
+
+  background: #fff9f0;
+
+  color: #5a3825;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+
+  transition: all 0.2s ease;
+}
+
+.category-button:hover {
+  background: #f5efe6;
+
+  border-color: #8b6b52;
+
+  color: #5a3825;
+}
+
+.category-button.active {
+  background: #5a3825;
+
+  color: #fff9f0;
+
+  border-color: #5a3825;
+}
+
+
+/* =========================================================
+   MENU FILTER + SEARCH MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .menu-search {
+    width: 92%;
+
+    margin-top: 20px;
+    margin-bottom: 15px;
+
+    padding: 11px 15px;
+  }
+
+  .category-filter {
+    gap: 8px;
+
+    margin: 20px auto 25px;
+
+    padding: 0 10px;
+  }
+
+  .category-button {
+    padding: 8px 14px;
+
+    font-size: 13px;
+  }
+}
+
+/* ======================================================
+   MENU FILTER
+====================================================== */
+
+.menu-filter-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 18px 0 28px;
+}
+
+/* Filter Button */
+
+.menu-filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  background: #fff9f0;
+  color: #5a3825;
+
+  border: 1px solid #e5d8c8;
+  border-radius: 8px;
 
   font-size: 14px;
   font-weight: 600;
 
   cursor: pointer;
+
+  transition: all 0.2s ease;
 }
 
-.logout-button:hover {
-  background: #000;
+.menu-filter-button:hover,
+.menu-filter-button.filter-active {
+  background: #5a3825;
+  color: #fff9f0;
+  border-color: #5a3825;
 }
 
+/* Filter Panel */
 
-/* =========================================
-   FOODORA NAVBAR - MOBILE
-========================================= */
+.menu-filter-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
 
-@media (max-width: 768px) {
+  width: 280px;
 
-  .navbar {
-    padding: 0 20px;
-  }
+  padding: 20px;
 
-  .logo {
-    width: 120px;
-  }
+  background: #fff9f0;
 
-  .logo a {
-    width: 120px;
-  }
+  border: 1px solid #e5d8c8;
+  border-radius: 12px;
 
-  .foodora-logo {
-    width: 120px !important;
-    height: 50px !important;
+  box-shadow: 0 8px 25px rgba(62, 38, 25, 0.15);
 
-    max-width: 120px !important;
-    max-height: 50px !important;
-  }
-
-  .nav-links {
-    gap: 12px;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-  }
+  z-index: 50;
 }
 
+/* Panel Heading */
+
+.menu-filter-panel h3 {
+  margin: 0 0 18px;
+
+  color: #3e2619;
+
+  font-size: 18px;
+}
+
+/* Filter Section */
+
+.filter-section {
+  margin-bottom: 18px;
+}
+
+.filter-section p {
+  margin: 0 0 10px;
+
+  color: #5a3825;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Filter Options */
+
+.filter-section label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 10px;
+
+  color: #4a3325;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.filter-section input[type="radio"] {
+  width: 16px;
+  height: 16px;
+
+  accent-color: #5a3825;
+
+  cursor: pointer;
+}
+
+/* Filter Buttons */
+
+.filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  padding-top: 12px;
+
+  border-top: 1px solid #e5d8c8;
+}
+
+.clear-filter-button,
+.apply-filter-button {
+  padding: 8px 15px;
+
+  border-radius: 7px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* Clear */
+
+.clear-filter-button {
+  background: transparent;
+
+  color: #7a6858;
+
+  border: 1px solid #e5d8c8;
+}
+
+.clear-filter-button:hover {
+  background: #f5efe6;
+}
+
+/* Apply */
+
+.apply-filter-button {
+  background: #5a3825;
+
+  color: #fff9f0;
+
+  border: 1px solid #5a3825;
+}
+
+.apply-filter-button:hover {
+  background: #3e2619;
+}
+
+/* ======================================================
+   MOBILE FILTER
+====================================================== */
+
+@media (max-width: 600px) {
+
+  .menu-filter-container {
+    justify-content: flex-end;
+    margin: 15px 0 22px;
+  }
+
+  .menu-filter-button {
+    padding: 9px 15px;
+    font-size: 13px;
+  }
+
+  .menu-filter-panel {
+    width: 260px;
+    max-width: calc(100vw - 36px);
+
+    right: 0;
+
+    padding: 17px;
+  }
+
+}

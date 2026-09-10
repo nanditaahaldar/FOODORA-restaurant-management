@@ -31,7 +31,7 @@ import MyOrders from "./pages/MyOrders";
 import Profile from "./pages/Profile";
 import AdminOrders from "./pages/AdminOrders";
 import Favorites from "./pages/Favorites";
-
+import "./App.css";
 
 function App() {
   return (

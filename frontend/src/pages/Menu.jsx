@@ -1,19 +1,32 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-
-import { Heart } from "lucide-react";
-
+import {
+  Heart,
+  Search,
+  SlidersHorizontal,
+} from "lucide-react";
 import API from "../services/api";
 
 function Menu() {
   const [menuItems, setMenuItems] = useState([]);
-
   const [loading, setLoading] = useState(true);
-
   const [error, setError] = useState("");
 
-  // ❤️ Store favorite menu item IDs
+  // Search
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Category filter
+  const [selectedCategory, setSelectedCategory] =
+    useState("All");
+
+  // Price/rating/availability filter
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [selectedSort, setSelectedSort] = useState("");
+
+  // Reference for filter container
+  const filterRef = useRef(null);
+
+  // Store favorite menu item IDs
   const [favorites, setFavorites] = useState([]);
 
   // ======================================================
@@ -26,7 +39,8 @@ function Menu() {
         // Get menu items
         const menuResponse = await API.get("/menu");
 
-        const items = menuResponse.data.menuItems || [];
+        const items =
+          menuResponse.data.menuItems || [];
 
         // Fetch reviews for every menu item
         const itemsWithRatings = await Promise.all(
@@ -94,7 +108,6 @@ function Menu() {
         }
       } catch (error) {
         console.error(error);
-
         setError("Failed to load menu items.");
       } finally {
         setLoading(false);
@@ -103,6 +116,35 @@ function Menu() {
 
     fetchData();
   }, []);
+
+  // ======================================================
+  // CLOSE FILTER WHEN CLICKING OUTSIDE
+  // ======================================================
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        filterRef.current &&
+        !filterRef.current.contains(event.target)
+      ) {
+        setFilterOpen(false);
+      }
+    };
+
+    if (filterOpen) {
+      document.addEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+    }
+
+    return () => {
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+    };
+  }, [filterOpen]);
 
   // ======================================================
   // TOGGLE FAVORITE
@@ -128,7 +170,8 @@ function Menu() {
         }
       );
 
-      const isFavorite = response.data.isFavorite;
+      const isFavorite =
+        response.data.isFavorite;
 
       if (isFavorite) {
         // Add to favorites
@@ -159,6 +202,85 @@ function Menu() {
         );
       }
     }
+  };
+
+  // ======================================================
+  // FILTER + SORT MENU ITEMS
+  // ======================================================
+
+  const filteredMenuItems = [...menuItems]
+    .filter((item) => {
+      // Category
+      const matchesCategory =
+        selectedCategory === "All" ||
+        item.category === selectedCategory;
+
+      // Search
+      const searchText =
+        searchTerm.toLowerCase().trim();
+
+      const matchesSearch =
+        item.name
+          ?.toLowerCase()
+          .includes(searchText) ||
+        item.description
+          ?.toLowerCase()
+          .includes(searchText) ||
+        item.category
+          ?.toLowerCase()
+          .includes(searchText);
+
+      return (
+        matchesCategory && matchesSearch
+      );
+    })
+    .sort((a, b) => {
+      // Price: Low to High
+      if (selectedSort === "price-low") {
+        return (
+          Number(a.price) - Number(b.price)
+        );
+      }
+
+      // Price: High to Low
+      if (selectedSort === "price-high") {
+        return (
+          Number(b.price) - Number(a.price)
+        );
+      }
+
+      // Rating: Highest First
+      if (selectedSort === "rating-high") {
+        return (
+          Number(b.averageRating || 0) -
+          Number(a.averageRating || 0)
+        );
+      }
+
+      // Available Items First
+      if (selectedSort === "available") {
+        const aAvailable =
+          a.availability === "In Stock"
+            ? 1
+            : 0;
+
+        const bAvailable =
+          b.availability === "In Stock"
+            ? 1
+            : 0;
+
+        return bAvailable - aAvailable;
+      }
+
+      return 0;
+    });
+
+  // ======================================================
+  // CLEAR FILTER
+  // ======================================================
+
+  const handleClearFilter = () => {
+    setSelectedSort("");
   };
 
   // ======================================================
@@ -197,7 +319,6 @@ function Menu() {
       ====================================================== */}
 
       <div className="menu-header">
-
         <p className="section-subtitle">
           OUR MENU
         </p>
@@ -210,7 +331,196 @@ function Menu() {
           Explore our selection of delicious dishes
           prepared with fresh ingredients.
         </p>
+      </div>
 
+      {/* ======================================================
+          SEARCH BAR
+      ====================================================== */}
+
+      <div className="menu-search">
+        <Search size={20} />
+
+        <input
+          type="text"
+          placeholder="Search for food..."
+          value={searchTerm}
+          onChange={(e) =>
+            setSearchTerm(e.target.value)
+          }
+        />
+      </div>
+
+      {/* ======================================================
+          CATEGORY FILTER
+      ====================================================== */}
+
+      <div className="category-filter">
+        {[
+          "All",
+          "Starter",
+          "Main Course",
+          "Dessert",
+          "Beverage",
+        ].map((category) => (
+          <button
+            key={category}
+            type="button"
+            className={
+              selectedCategory === category
+                ? "category-button active"
+                : "category-button"
+            }
+            onClick={() =>
+              setSelectedCategory(category)
+            }
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* ======================================================
+          FILTER BUTTON
+      ====================================================== */}
+
+      <div
+        className="menu-filter-container"
+        ref={filterRef}
+      >
+        <button
+          type="button"
+          className={`menu-filter-button ${
+            selectedSort
+              ? "filter-active"
+              : ""
+          }`}
+          onClick={() =>
+            setFilterOpen(!filterOpen)
+          }
+        >
+          <SlidersHorizontal size={18} />
+          <span>Filter</span>
+        </button>
+
+        {/* ======================================================
+            FILTER PANEL
+        ====================================================== */}
+
+        {filterOpen && (
+          <div className="menu-filter-panel">
+
+            <h3>Filter Menu</h3>
+
+            {/* Price */}
+
+            <div className="filter-section">
+              <p>Price</p>
+
+              <label>
+                <input
+                  type="radio"
+                  name="sort"
+                  value="price-low"
+                  checked={
+                    selectedSort === "price-low"
+                  }
+                  onChange={(e) =>
+                    setSelectedSort(
+                      e.target.value
+                    )
+                  }
+                />
+
+                Price: Low to High
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="sort"
+                  value="price-high"
+                  checked={
+                    selectedSort === "price-high"
+                  }
+                  onChange={(e) =>
+                    setSelectedSort(
+                      e.target.value
+                    )
+                  }
+                />
+
+                Price: High to Low
+              </label>
+            </div>
+
+            {/* Other */}
+
+            <div className="filter-section">
+              <p>Other</p>
+
+              <label>
+                <input
+                  type="radio"
+                  name="sort"
+                  value="rating-high"
+                  checked={
+                    selectedSort === "rating-high"
+                  }
+                  onChange={(e) =>
+                    setSelectedSort(
+                      e.target.value
+                    )
+                  }
+                />
+
+                Rating: Highest First
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="sort"
+                  value="available"
+                  checked={
+                    selectedSort === "available"
+                  }
+                  onChange={(e) =>
+                    setSelectedSort(
+                      e.target.value
+                    )
+                  }
+                />
+
+                Available Items First
+              </label>
+            </div>
+
+            {/* Filter Actions */}
+
+            <div className="filter-actions">
+
+              <button
+                type="button"
+                className="clear-filter-button"
+                onClick={handleClearFilter}
+              >
+                Clear
+              </button>
+
+              <button
+                type="button"
+                className="apply-filter-button"
+                onClick={() =>
+                  setFilterOpen(false)
+                }
+              >
+                Apply
+              </button>
+
+            </div>
+
+          </div>
+        )}
       </div>
 
       {/* ======================================================
@@ -221,6 +531,10 @@ function Menu() {
         <p className="empty-menu">
           No menu items available.
         </p>
+      ) : filteredMenuItems.length === 0 ? (
+        <p className="empty-menu">
+          No food found.
+        </p>
       ) : (
 
         /* ======================================================
@@ -229,11 +543,10 @@ function Menu() {
 
         <div className="menu-grid">
 
-          {menuItems.map((item) => {
+          {filteredMenuItems.map((item) => {
 
-            const isFavorite = favorites.includes(
-              item._id
-            );
+            const isFavorite =
+              favorites.includes(item._id);
 
             return (
               <div
@@ -256,9 +569,7 @@ function Menu() {
                     <span>🍽️</span>
                   )}
 
-                  {/* ==================================================
-                      FAVORITE BUTTON
-                  ================================================== */}
+                  {/* Favorite Button */}
 
                   <button
                     type="button"
@@ -338,7 +649,9 @@ function Menu() {
                         </span>
 
                         <strong>
-                          {item.averageRating.toFixed(1)}
+                          {item.averageRating.toFixed(
+                            1
+                          )}
                         </strong>
 
                         <span className="menu-review-count">
@@ -378,7 +691,8 @@ function Menu() {
 
                   <p
                     className={
-                      item.availability === "In Stock"
+                      item.availability ===
+                      "In Stock"
                         ? "available"
                         : "unavailable"
                     }
@@ -394,7 +708,6 @@ function Menu() {
 
         </div>
       )}
-
     </div>
   );
 }

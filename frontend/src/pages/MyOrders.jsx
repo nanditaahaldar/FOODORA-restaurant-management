@@ -29,6 +29,7 @@ function MyOrders() {
 
       if (!token) {
         navigate("/login");
+         setLoading(false);
         return;
       }
 

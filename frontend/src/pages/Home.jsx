@@ -90,7 +90,7 @@ function Home() {
           </p>
 
           <h2>
-            Good Food. Good Mood.
+            Good Food. Better Mood.
           </h2>
 
           <p className="about-text">

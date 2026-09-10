@@ -15,7 +15,7 @@ import {
 
 import { Link, useNavigate } from "react-router-dom";
 import { getUserRole, isLoggedIn } from "../services/auth";
-import FoodAuraLogo from "../assets/FoodAura-logo.png";
+import FoodAuraLogo from "../assets/Foodaura-logo.png";
 
 function Navbar() {
   const navigate = useNavigate();

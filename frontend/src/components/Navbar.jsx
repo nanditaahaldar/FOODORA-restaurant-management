@@ -10,12 +10,11 @@ import {
   LogOut,
   X,
   Menu as MenuIcon,
+  LayoutDashboard,
 } from "lucide-react";
 
 import { Link, useNavigate } from "react-router-dom";
-
 import { getUserRole, isLoggedIn } from "../services/auth";
-
 import foodoraLogo from "../assets/Foodora-logo.png";
 
 function Navbar() {
@@ -105,17 +104,12 @@ function Navbar() {
       >
 
         {/* ==================================================
-            COMMON LINKS
+            HOME
         ================================================== */}
 
         <Link to="/" onClick={closeMenu}>
           <Home size={18} />
           <span>Home</span>
-        </Link>
-
-        <Link to="/menu" onClick={closeMenu}>
-          <Utensils size={18} />
-          <span>Menu</span>
         </Link>
 
         {/* ==================================================
@@ -124,6 +118,11 @@ function Navbar() {
 
         {loggedIn && role === "user" && (
           <>
+            <Link to="/menu" onClick={closeMenu}>
+              <Utensils size={18} />
+              <span>Menu</span>
+            </Link>
+
             <Link to="/cart" onClick={closeMenu}>
               <ShoppingCart size={18} />
               <span>Cart</span>
@@ -156,28 +155,32 @@ function Navbar() {
               to="/admin/dashboard"
               onClick={closeMenu}
             >
-              Dashboard
+              <LayoutDashboard size={18} />
+              <span>Dashboard</span>
             </Link>
 
             <Link
               to="/admin/menu"
               onClick={closeMenu}
             >
-              Menu Management
+              <Utensils size={18} />
+              <span>Menu Management</span>
             </Link>
 
             <Link
               to="/admin/orders"
               onClick={closeMenu}
             >
-              Orders
+              <ClipboardList size={18} />
+              <span>Orders</span>
             </Link>
 
             <Link
               to="/admin/users"
               onClick={closeMenu}
             >
-              Users
+              <User size={18} />
+              <span>Users</span>
             </Link>
           </>
         )}

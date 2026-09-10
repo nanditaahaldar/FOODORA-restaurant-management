@@ -516,15 +516,69 @@
    ADMIN USERS
 ========================================================= */
 
+/* ======================================================
+   ADMIN USERS
+====================================================== */
+
+.admin-users-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  box-sizing: border-box;
+}
+
 .users-count {
+  width: 100%;
   margin: 20px 0;
+  padding: 14px 18px;
+  box-sizing: border-box;
   font-size: 16px;
-  color: #555;
+  color: #5a3825;
+  background: #fff9f0;
+  border: 1px solid #e5d8c8;
+  border-radius: 8px;
 }
 
 .users-count strong {
   font-size: 22px;
-  color: #222;
+  color: #3e2619;
+}
+
+.users-table-container {
+  width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff9f0;
+  border: 1px solid #e5d8c8;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.users-table th,
+.users-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5d8c8;
+}
+
+.users-table th {
+  background: #f5efe6;
+  color: #3e2619;
+  font-weight: 600;
+}
+
+.users-table td {
+  color: #4a3325;
+}
+
+.users-table tr:last-child td {
+  border-bottom: none;
 }
 
 .success-message {

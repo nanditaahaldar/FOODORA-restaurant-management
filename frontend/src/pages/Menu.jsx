@@ -19,7 +19,7 @@ function Menu() {
   const [selectedCategory, setSelectedCategory] =
     useState("All");
 
-  // Price/rating/availability filter
+  // Price / rating / availability filter
   const [filterOpen, setFilterOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState("");
 
@@ -30,73 +30,88 @@ function Menu() {
   const [favorites, setFavorites] = useState([]);
 
   // ======================================================
-  // GET MENU ITEMS + FAVORITES
+  // GET MENU ITEMS
   // ======================================================
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchMenuItems = async () => {
       try {
-        // Get menu items
         const menuResponse = await API.get("/menu");
 
         const items =
           menuResponse.data.menuItems || [];
 
-        // Fetch reviews for every menu item
-        const itemsWithRatings = await Promise.all(
-          items.map(async (item) => {
-            try {
-              const reviewResponse = await API.get(
-                `/reviews/${item._id}`
-              );
-
-              return {
-                ...item,
-                averageRating:
-                  reviewResponse.data.averageRating || 0,
-                totalReviews:
-                  reviewResponse.data.totalReviews || 0,
-              };
-            } catch (reviewError) {
-              console.error(
-                `Failed to load reviews for ${item.name}:`,
-                reviewError
-              );
-
-              return {
-                ...item,
-                averageRating: 0,
-                totalReviews: 0,
-              };
-            }
-          })
+        // SHOW MENU IMMEDIATELY
+        setMenuItems(
+          items.map((item) => ({
+            ...item,
+            averageRating: 0,
+            totalReviews: 0,
+          }))
         );
 
-        setMenuItems(itemsWithRatings);
+        setLoading(false);
 
         // ==================================================
-        // GET USER FAVORITES
+        // LOAD REVIEWS IN BACKGROUND
         // ==================================================
 
-        const token = localStorage.getItem("token");
+        items.forEach(async (item) => {
+          try {
+            const reviewResponse = await API.get(
+              `/reviews/${item._id}`
+            );
+
+            setMenuItems((previousItems) =>
+              previousItems.map((menuItem) =>
+                menuItem._id === item._id
+                  ? {
+                      ...menuItem,
+                      averageRating:
+                        reviewResponse.data
+                          .averageRating || 0,
+                      totalReviews:
+                        reviewResponse.data
+                          .totalReviews || 0,
+                    }
+                  : menuItem
+              )
+            );
+          } catch (reviewError) {
+            console.error(
+              `Failed to load reviews for ${item.name}:`,
+              reviewError
+            );
+          }
+        });
+
+        // ==================================================
+        // LOAD FAVORITES IN BACKGROUND
+        // ==================================================
+
+        const token =
+          localStorage.getItem("token");
 
         if (token) {
           try {
-            const favoriteResponse = await API.get(
-              "/users/favorites",
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-              }
-            );
+            const favoriteResponse =
+              await API.get(
+                "/users/favorites",
+                {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                  },
+                }
+              );
 
             const favoriteItems =
-              favoriteResponse.data.favorites || [];
+              favoriteResponse.data.favorites ||
+              [];
 
-            const favoriteIds = favoriteItems.map(
-              (item) => item._id
-            );
+            const favoriteIds =
+              favoriteItems.map(
+                (item) => item._id
+              );
 
             setFavorites(favoriteIds);
           } catch (favoriteError) {
@@ -109,12 +124,11 @@ function Menu() {
       } catch (error) {
         console.error(error);
         setError("Failed to load menu items.");
-      } finally {
         setLoading(false);
       }
     };
 
-    fetchData();
+    fetchMenuItems();
   }, []);
 
   // ======================================================
@@ -151,9 +165,9 @@ function Menu() {
   // ======================================================
 
   const handleFavorite = async (menuItemId) => {
-    const token = localStorage.getItem("token");
+    const token =
+      localStorage.getItem("token");
 
-    // User must login to use favorites
     if (!token) {
       alert("Please login to add favorites.");
       return;
@@ -174,13 +188,11 @@ function Menu() {
         response.data.isFavorite;
 
       if (isFavorite) {
-        // Add to favorites
         setFavorites((previous) => [
           ...previous,
           menuItemId,
         ]);
       } else {
-        // Remove from favorites
         setFavorites((previous) =>
           previous.filter(
             (id) => id !== menuItemId
@@ -210,12 +222,10 @@ function Menu() {
 
   const filteredMenuItems = [...menuItems]
     .filter((item) => {
-      // Category
       const matchesCategory =
         selectedCategory === "All" ||
         item.category === selectedCategory;
 
-      // Search
       const searchText =
         searchTerm.toLowerCase().trim();
 
@@ -238,14 +248,16 @@ function Menu() {
       // Price: Low to High
       if (selectedSort === "price-low") {
         return (
-          Number(a.price) - Number(b.price)
+          Number(a.price) -
+          Number(b.price)
         );
       }
 
       // Price: High to Low
       if (selectedSort === "price-high") {
         return (
-          Number(b.price) - Number(a.price)
+          Number(b.price) -
+          Number(a.price)
         );
       }
 
@@ -314,9 +326,7 @@ function Menu() {
   return (
     <div className="menu-page">
 
-      {/* ======================================================
-          MENU HEADER
-      ====================================================== */}
+      {/* MENU HEADER */}
 
       <div className="menu-header">
         <p className="section-subtitle">
@@ -328,14 +338,12 @@ function Menu() {
         </h1>
 
         <p>
-          Explore our selection of delicious dishes
-          prepared with fresh ingredients.
+          Explore our selection of delicious
+          dishes prepared with fresh ingredients.
         </p>
       </div>
 
-      {/* ======================================================
-          SEARCH BAR
-      ====================================================== */}
+      {/* SEARCH BAR */}
 
       <div className="menu-search">
         <Search size={20} />
@@ -350,9 +358,7 @@ function Menu() {
         />
       </div>
 
-      {/* ======================================================
-          CATEGORY FILTER
-      ====================================================== */}
+      {/* CATEGORY FILTER */}
 
       <div className="category-filter">
         {[
@@ -379,9 +385,7 @@ function Menu() {
         ))}
       </div>
 
-      {/* ======================================================
-          FILTER BUTTON
-      ====================================================== */}
+      {/* FILTER BUTTON */}
 
       <div
         className="menu-filter-container"
@@ -402,16 +406,14 @@ function Menu() {
           <span>Filter</span>
         </button>
 
-        {/* ======================================================
-            FILTER PANEL
-        ====================================================== */}
+        {/* FILTER PANEL */}
 
         {filterOpen && (
           <div className="menu-filter-panel">
 
             <h3>Filter Menu</h3>
 
-            {/* Price */}
+            {/* PRICE */}
 
             <div className="filter-section">
               <p>Price</p>
@@ -422,7 +424,8 @@ function Menu() {
                   name="sort"
                   value="price-low"
                   checked={
-                    selectedSort === "price-low"
+                    selectedSort ===
+                    "price-low"
                   }
                   onChange={(e) =>
                     setSelectedSort(
@@ -440,7 +443,8 @@ function Menu() {
                   name="sort"
                   value="price-high"
                   checked={
-                    selectedSort === "price-high"
+                    selectedSort ===
+                    "price-high"
                   }
                   onChange={(e) =>
                     setSelectedSort(
@@ -453,7 +457,7 @@ function Menu() {
               </label>
             </div>
 
-            {/* Other */}
+            {/* OTHER */}
 
             <div className="filter-section">
               <p>Other</p>
@@ -464,7 +468,8 @@ function Menu() {
                   name="sort"
                   value="rating-high"
                   checked={
-                    selectedSort === "rating-high"
+                    selectedSort ===
+                    "rating-high"
                   }
                   onChange={(e) =>
                     setSelectedSort(
@@ -482,7 +487,8 @@ function Menu() {
                   name="sort"
                   value="available"
                   checked={
-                    selectedSort === "available"
+                    selectedSort ===
+                    "available"
                   }
                   onChange={(e) =>
                     setSelectedSort(
@@ -495,7 +501,7 @@ function Menu() {
               </label>
             </div>
 
-            {/* Filter Actions */}
+            {/* FILTER ACTIONS */}
 
             <div className="filter-actions">
 
@@ -523,9 +529,7 @@ function Menu() {
         )}
       </div>
 
-      {/* ======================================================
-          EMPTY MENU
-      ====================================================== */}
+      {/* EMPTY MENU */}
 
       {menuItems.length === 0 ? (
         <p className="empty-menu">
@@ -537,9 +541,7 @@ function Menu() {
         </p>
       ) : (
 
-        /* ======================================================
-           MENU GRID
-        ====================================================== */
+        /* MENU GRID */
 
         <div className="menu-grid">
 
@@ -554,9 +556,7 @@ function Menu() {
                 key={item._id}
               >
 
-                {/* ==================================================
-                    IMAGE
-                ================================================== */}
+                {/* IMAGE */}
 
                 <div className="menu-image">
 
@@ -569,7 +569,7 @@ function Menu() {
                     <span>🍽️</span>
                   )}
 
-                  {/* Favorite Button */}
+                  {/* FAVORITE BUTTON */}
 
                   <button
                     type="button"
@@ -599,40 +599,35 @@ function Menu() {
 
                 </div>
 
-                {/* ==================================================
-                    CARD CONTENT
-                ================================================== */}
+                {/* CARD CONTENT */}
 
                 <div className="menu-card-content">
 
-                  {/* Category */}
+                  {/* CATEGORY */}
 
                   <p className="menu-category">
                     {item.category}
                   </p>
 
-                  {/* Name */}
+                  {/* NAME */}
 
                   <h2>
                     {item.name}
                   </h2>
 
-                  {/* Description */}
+                  {/* DESCRIPTION */}
 
                   <p className="menu-description">
                     {item.description}
                   </p>
 
-                  {/* ==================================================
-                      RATING
-                  ================================================== */}
+                  {/* RATING */}
 
                   <div className="menu-card-rating">
 
                     {item.totalReviews > 0 ? (
                       <>
                         <span className="menu-rating-stars">
-
                           {"★".repeat(
                             Math.round(
                               item.averageRating
@@ -645,13 +640,12 @@ function Menu() {
                                 item.averageRating
                               )
                           )}
-
                         </span>
 
                         <strong>
-                          {item.averageRating.toFixed(
-                            1
-                          )}
+                          {Number(
+                            item.averageRating
+                          ).toFixed(1)}
                         </strong>
 
                         <span className="menu-review-count">
@@ -666,9 +660,7 @@ function Menu() {
 
                   </div>
 
-                  {/* ==================================================
-                      PRICE + VIEW DETAILS
-                  ================================================== */}
+                  {/* PRICE + VIEW DETAILS */}
 
                   <div className="menu-card-bottom">
 
@@ -685,9 +677,7 @@ function Menu() {
 
                   </div>
 
-                  {/* ==================================================
-                      AVAILABILITY
-                  ================================================== */}
+                  {/* AVAILABILITY */}
 
                   <p
                     className={

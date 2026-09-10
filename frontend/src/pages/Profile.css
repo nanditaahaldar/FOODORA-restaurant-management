@@ -1,0 +1,530 @@
+/* ==========================================
+   FOODORA PROFILE PAGE
+========================================== */
+
+.profile-page {
+  min-height: calc(100vh - 70px);
+  padding: 60px 20px;
+  background: #F5EFE6;
+}
+
+.profile-container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+
+/* ==========================================
+   PROFILE HEADER
+========================================== */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.profile-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #EDE1D2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid #FFF9F0;
+  box-shadow: 0 4px 15px rgba(90, 56, 37, 0.12);
+}
+
+.profile-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ==========================================
+   PROFILE TITLE
+========================================== */
+
+.profile-title h1 {
+  font-size: 38px;
+  margin: 0 0 8px;
+  color: #3E2619;
+}
+
+.profile-title p {
+  margin: 0;
+  color: #7A6858;
+  font-size: 16px;
+}
+
+
+/* ==========================================
+   PROFILE PHOTO ACTIONS
+========================================== */
+
+.profile-photo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+/* ==========================================
+   CHANGE PHOTO
+========================================== */
+
+.change-photo-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 13px;
+  border: 1px solid #D8C8B5;
+  border-radius: 6px;
+  background: #FFF9F0;
+  color: #5A3825;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.change-photo-btn:hover {
+  background: #EDE1D2;
+  border-color: #5A3825;
+}
+
+
+/* ==========================================
+   REMOVE PHOTO
+========================================== */
+
+.remove-photo-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 13px;
+  border: 1px solid #E5D8C8;
+  border-radius: 6px;
+  background: #FFF9F0;
+  color: #C62828;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.remove-photo-btn:hover {
+  background: #FFF1F1;
+  border-color: #C62828;
+}
+
+
+/* ==========================================
+   SUCCESS / ERROR
+========================================== */
+
+.profile-success {
+  margin-bottom: 20px;
+  padding: 13px 16px;
+  border-radius: 7px;
+  background: #E8F5E9;
+  color: #2E7D32;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-error {
+  margin-bottom: 20px;
+  padding: 13px 16px;
+  border-radius: 7px;
+  background: #FFEBEE;
+  color: #C62828;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* ==========================================
+   PROFILE CARD
+========================================== */
+
+.profile-card {
+  background: #FFF9F0;
+  border: 1px solid #E5D8C8;
+  border-radius: 14px;
+  padding: 40px;
+  box-shadow: 0 5px 25px rgba(90, 56, 37, 0.08);
+}
+
+
+/* ==========================================
+   CARD HEADER
+========================================== */
+
+.profile-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.profile-card-header h2 {
+  margin: 0 0 7px;
+  font-size: 25px;
+  color: #3E2619;
+}
+
+.profile-card-header p {
+  margin: 0;
+  color: #7A6858;
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   EDIT PROFILE BUTTON
+========================================== */
+
+.edit-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 7px;
+  background: #5A3825;
+  color: #FFF9F0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.edit-profile-btn:hover {
+  background: #3E2619;
+}
+
+
+/* ==========================================
+   PROFILE FORM
+========================================== */
+
+.profile-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-field-full {
+  grid-column: 1 / -1;
+}
+
+.profile-field label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4A3325;
+}
+
+.profile-field input,
+.profile-field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #D8C8B5;
+  border-radius: 7px;
+  background: #FFF9F0;
+  color: #4A3325;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.2s ease;
+}
+
+.profile-field input::placeholder,
+.profile-field textarea::placeholder {
+  color: #9A8978;
+}
+
+.profile-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.profile-field input:focus,
+.profile-field textarea:focus {
+  border-color: #5A3825;
+  box-shadow: 0 0 0 3px rgba(90, 56, 37, 0.08);
+}
+
+
+/* ==========================================
+   SMALL FIELD TEXT
+========================================== */
+
+.profile-field small {
+  margin-top: 7px;
+  color: #8B7968;
+  font-size: 12px;
+}
+
+
+/* ==========================================
+   DISPLAY VALUE
+========================================== */
+
+.profile-value {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid #E5D8C8;
+  border-radius: 7px;
+  background: #F5EFE6;
+  color: #4A3325;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.disabled-field {
+  color: #7A6858;
+  background: #EDE1D2;
+}
+
+
+/* ==========================================
+   SAVE / CANCEL
+========================================== */
+
+.profile-edit-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #E5D8C8;
+}
+
+.save-profile-btn,
+.cancel-profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 22px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.save-profile-btn {
+  border: none;
+  background: #5A3825;
+  color: #FFF9F0;
+}
+
+.save-profile-btn:hover {
+  background: #3E2619;
+}
+
+.save-profile-btn:disabled,
+.cancel-profile-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancel-profile-btn {
+  border: 1px solid #D8C8B5;
+  background: #FFF9F0;
+  color: #5A3825;
+}
+
+.cancel-profile-btn:hover {
+  background: #F5EFE6;
+  border-color: #5A3825;
+}
+
+
+/* ==========================================
+   BOTTOM ACTIONS
+========================================== */
+
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #E5D8C8;
+}
+
+.profile-orders-btn,
+.profile-logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile-orders-btn {
+  background: #5A3825;
+  color: #FFF9F0;
+}
+
+.profile-orders-btn:hover {
+  background: #3E2619;
+}
+
+.profile-logout-btn {
+  border: 1px solid #D8C8B5;
+  background: #FFF9F0;
+  color: #5A3825;
+}
+
+.profile-logout-btn:hover {
+  background: #F5EFE6;
+  border-color: #5A3825;
+}
+
+
+/* ==========================================
+   EMPTY PROFILE
+========================================== */
+
+.profile-empty {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 50px;
+  text-align: center;
+  background: #FFF9F0;
+  border: 1px solid #E5D8C8;
+  border-radius: 14px;
+  box-shadow: 0 5px 25px rgba(90, 56, 37, 0.08);
+}
+
+.profile-empty svg {
+  margin-bottom: 20px;
+  color: #5A3825;
+}
+
+.profile-empty h1 {
+  margin-bottom: 10px;
+  color: #3E2619;
+}
+
+.profile-empty p {
+  margin-bottom: 25px;
+  color: #7A6858;
+}
+
+.profile-login-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #5A3825;
+  color: #FFF9F0;
+  text-decoration: none;
+  border-radius: 7px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.profile-login-btn:hover {
+  background: #3E2619;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .profile-page {
+    padding: 40px 20px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-title h1 {
+    font-size: 32px;
+  }
+
+  .profile-card {
+    padding: 25px;
+  }
+
+  .profile-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .edit-profile-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-field-full {
+    grid-column: auto;
+  }
+
+  .profile-edit-actions {
+    flex-direction: column;
+  }
+
+  .save-profile-btn,
+  .cancel-profile-btn {
+    width: 100%;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
+
+  .profile-orders-btn,
+  .profile-logout-btn {
+    width: 100%;
+  }
+
+  .profile-photo-actions {
+    width: 140px;
+  }
+}

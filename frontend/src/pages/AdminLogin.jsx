@@ -81,13 +81,13 @@ function AdminLogin() {
       <div className="auth-card">
 
         <p className="section-subtitle">
-          FOODORA ADMIN
+          FoodAura ADMIN
         </p>
 
         <h1>Admin Login</h1>
 
         <p className="auth-subtitle">
-          Login to manage Foodora.
+          Login to manage FoodAura.
         </p>
 
         <form onSubmit={handleSubmit}>

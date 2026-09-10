@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import heroFood from "../assets/foodora-hero.webp";
+import heroFood from "../assets/FoodAura-hero.webp";
 import { getUserRole, isLoggedIn } from "../services/auth";
 
 function Home() {
@@ -29,13 +29,13 @@ function Home() {
         <div className="hero-content">
 
           <p className="hero-subtitle">
-            {isAdmin ? "WELCOME TO FOODORA ADMIN" : "WELCOME TO FOODORA"}
+            {isAdmin ? "WELCOME TO FoodAura ADMIN" : "WELCOME TO FoodAura"}
           </p>
 
           <h1>
             {isAdmin ? (
               <>
-                Manage Foodora,
+                Manage FoodAura,
                 <br />
                 <span>Manage With Ease</span>
               </>
@@ -86,7 +86,7 @@ function Home() {
         <section className="about">
 
           <p className="section-subtitle">
-            WHY FOODORA?
+            WHY FoodAura?
           </p>
 
           <h2>
@@ -94,7 +94,7 @@ function Home() {
           </h2>
 
           <p className="about-text">
-            At Foodora, we believe that great food brings people together.
+            At FoodAura, we believe that great food brings people together.
             Explore our menu and discover delicious dishes prepared especially
             for you.
           </p>
@@ -158,7 +158,7 @@ function Home() {
         <section className="about">
 
           <p className="section-subtitle">
-            FOODORA MANAGEMENT
+            FoodAura MANAGEMENT
           </p>
 
           <h2>
@@ -166,7 +166,7 @@ function Home() {
           </h2>
 
           <p className="about-text">
-            Welcome to the Foodora admin panel. Manage your menu, monitor
+            Welcome to the FoodAura admin panel. Manage your menu, monitor
             orders, view users and keep your restaurant running smoothly.
           </p>
 
@@ -265,7 +265,7 @@ function Home() {
         {isAdmin ? (
           <>
             <h2>
-              Ready to Manage Foodora?
+              Ready to Manage FoodAura?
             </h2>
 
             <p>

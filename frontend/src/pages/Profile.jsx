@@ -411,7 +411,7 @@ function Profile() {
             <h1>My Profile</h1>
 
             <p>
-              Manage your Foodora account information
+              Manage your FoodAura account information
             </p>
           </div>
 

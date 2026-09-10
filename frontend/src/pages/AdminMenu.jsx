@@ -97,7 +97,7 @@ function AdminMenu() {
 
       <div className="admin-menu-header">
         <div>
-          <p className="section-subtitle">FOODORA ADMIN</p>
+          <p className="section-subtitle">FoodAura ADMIN</p>
           <h1>Menu Management</h1>
           <p>Manage all your restaurant menu items.</p>
         </div>

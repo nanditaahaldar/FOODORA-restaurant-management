@@ -156,7 +156,7 @@ function AdminUsers() {
 
         <div>
           <p className="section-subtitle">
-            FOODORA ADMIN
+            FoodAura ADMIN
           </p>
 
           <h1>User Management</h1>

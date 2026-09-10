@@ -92,7 +92,7 @@ function AdminDashboard() {
 
       <div className="admin-dashboard-header">
         <p className="section-subtitle">
-          FOODORA ADMIN
+          FoodAura ADMIN
         </p>
 
         <h1>Admin Dashboard</h1>

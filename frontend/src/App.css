@@ -589,7 +589,7 @@
 
 
 /* =========================================================
-   FOODORA NAVBAR
+   FoodAura NAVBAR
 ========================================================= */
 
 .navbar {
@@ -629,7 +629,7 @@
   text-decoration: none;
 }
 
-.foodora-logo {
+.FoodAura-logo {
   display: block;
 
   width: 130px;
@@ -757,7 +757,7 @@
     padding: 10px 20px;
   }
 
-  .foodora-logo {
+  .FoodAura-logo {
     width: 115px;
     max-width: 115px;
   }
@@ -814,7 +814,7 @@
     align-items: center;
   }
 
-  .foodora-logo {
+  .FoodAura-logo {
     width: 115px;
     height: auto;
 
@@ -933,7 +933,7 @@
     padding: 8px 14px;
   }
 
-  .foodora-logo {
+  .FoodAura-logo {
     width: 105px;
     max-width: 105px;
     max-height: 45px;

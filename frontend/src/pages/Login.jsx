@@ -70,7 +70,7 @@ function Login() {
         <h1>Login</h1>
 
         <p className="auth-subtitle">
-          Login to your Foodora account.
+          Login to your FoodAura account.
         </p>
 
         <form onSubmit={handleSubmit}>

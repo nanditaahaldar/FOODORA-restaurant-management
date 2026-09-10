@@ -148,7 +148,7 @@ function AdminOrders() {
 
           <div>
             <p className="admin-orders-subtitle">
-              FOODORA ADMIN
+              FoodAura ADMIN
             </p>
 
             <h1>Customer Orders</h1>

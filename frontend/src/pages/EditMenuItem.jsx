@@ -98,7 +98,7 @@ function EditMenuItem() {
       <div className="admin-form-card">
 
         <p className="section-subtitle">
-          FOODORA ADMIN
+          FoodAura ADMIN
         </p>
 
         <h1>Edit Menu Item</h1>

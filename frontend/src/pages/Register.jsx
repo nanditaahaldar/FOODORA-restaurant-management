@@ -54,12 +54,12 @@ function Register() {
     <div className="auth-page">
       <div className="auth-card">
 
-        <p className="section-subtitle">WELCOME TO FOODORA</p>
+        <p className="section-subtitle">WELCOME TO FoodAura</p>
 
         <h1>Create Account</h1>
 
         <p className="auth-subtitle">
-          Register to explore Foodora.
+          Register to explore FoodAura.
         </p>
 
         <form onSubmit={handleSubmit}>

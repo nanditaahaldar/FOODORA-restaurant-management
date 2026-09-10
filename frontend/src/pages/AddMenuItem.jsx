@@ -60,7 +60,7 @@ function AddMenuItem() {
 
       <div className="admin-form-card">
 
-        <p className="section-subtitle">FOODORA ADMIN</p>
+        <p className="section-subtitle">FoodAura ADMIN</p>
 
         <h1>Add Menu Item</h1>
 

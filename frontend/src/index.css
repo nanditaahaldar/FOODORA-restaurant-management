@@ -1607,7 +1607,7 @@ border: 1px solid var(--border-beige);
   font-weight: 600;
 }
 /* =========================
-   FOODORA LOGO
+   FoodAura LOGO
 ========================= */
 
 .logo {
@@ -1625,7 +1625,7 @@ border: 1px solid var(--border-beige);
   align-items: center;
 }
 
-.foodora-logo {
+.FoodAura-logo {
   width: 130px !important;
   height: 50px !important;
   max-width: 130px !important;
@@ -2105,7 +2105,7 @@ border: 1px solid var(--border-beige);
 
 /* =========================================================
    FINAL RESPONSIVE FIXES
-   FOODORA
+   FoodAura
 ========================================================= */
 
 /* ---------- GLOBAL ---------- */
@@ -2172,7 +2172,7 @@ select {
   align-items: center;
 }
 
-.foodora-logo {
+.FoodAura-logo {
   width: 150px !important;
   height: 55px !important;
 
@@ -2924,7 +2924,7 @@ select {
     height: 65px;
   }
 
-  .foodora-logo {
+  .FoodAura-logo {
     width: 115px !important;
     height: 48px !important;
 
@@ -3502,7 +3502,7 @@ select {
 } 
 
 /* =========================================
-   MODERN FOODORA NAVBAR
+   MODERN FoodAura NAVBAR
    ========================================= */
 
 .navbar {
@@ -3524,7 +3524,7 @@ select {
   align-items: center;
 }
 
-.foodora-logo {
+.FoodAura-logo {
   height: 48px;
   width: auto;
   display: block;
@@ -3690,7 +3690,7 @@ select {
     padding: 10px 4%;
   }
 
-  .foodora-logo {
+  .FoodAura-logo {
     height: 42px;
   }
 

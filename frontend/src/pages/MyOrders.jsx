@@ -111,7 +111,7 @@ function MyOrders() {
           <div className="orders-page-header">
             <div>
               <p className="section-subtitle">
-                Foodora
+                FoodAura
               </p>
 
               <h1>
@@ -168,7 +168,7 @@ function MyOrders() {
           <div>
 
             <p className="section-subtitle">
-              FOODORA
+              FoodAura
             </p>
 
             <h1>

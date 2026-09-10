@@ -15,7 +15,7 @@ import {
 
 import { Link, useNavigate } from "react-router-dom";
 import { getUserRole, isLoggedIn } from "../services/auth";
-import foodoraLogo from "../assets/Foodora-logo.png";
+import FoodAuraLogo from "../assets/FoodAura-logo.png";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -64,9 +64,9 @@ function Navbar() {
       <div className="logo">
         <Link to="/" onClick={closeMenu}>
           <img
-            src={foodoraLogo}
-            alt="Foodora"
-            className="foodora-logo"
+            src={FoodAuraLogo}
+            alt="FoodAura"
+            className="FoodAura-logo"
           />
         </Link>
       </div>
